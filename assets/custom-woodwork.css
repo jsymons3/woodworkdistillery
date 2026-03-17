@@ -1,0 +1,296 @@
+/* =============================================
+   The WoodWork Collective Distilling Company
+   Premium Distillery Aesthetic
+   ============================================= */
+
+/* --- Global Refinements --- */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Refined selection color */
+::selection {
+  background: rgba(184, 146, 63, 0.3);
+  color: #f5f0e8;
+}
+
+/* --- Typography Enhancements --- */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  letter-spacing: 0.04em;
+}
+
+/* Refined paragraph spacing */
+.rte p {
+  margin-bottom: 1.4em;
+}
+
+.rte p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Header & Navigation --- */
+.site-header {
+  border-bottom: 1px solid rgba(184, 146, 63, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.site-nav__link {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 12px !important;
+}
+
+/* --- Announcement Bar --- */
+.announcement-bar {
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 11px;
+  border-bottom: 1px solid rgba(184, 146, 63, 0.2);
+}
+
+/* --- Buttons --- */
+.btn,
+.btn--primary {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding: 16px 36px;
+  border-radius: 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn:hover,
+.btn--primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn--secondary {
+  border: 1px solid rgba(184, 146, 63, 0.4);
+  background: transparent;
+  color: #b8923f;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 0;
+}
+
+.btn--secondary:hover {
+  background: #b8923f;
+  color: #0f0f0f;
+  border-color: #b8923f;
+}
+
+/* --- Hero Section --- */
+.hero-video__text-content h1,
+.hero__title {
+  letter-spacing: 0.06em;
+  font-weight: 400;
+  text-shadow: 0 2px 40px rgba(0, 0, 0, 0.5);
+}
+
+.hero__subtitle,
+.hero-video__text-content .hero__subtitle {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* --- Section Spacing --- */
+.index-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* --- Rich Text Sections --- */
+.rich-text__heading {
+  position: relative;
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+}
+
+.rich-text__heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #b8923f, transparent);
+}
+
+.rich-text__entry {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.rich-text__entry p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: #c4b89a;
+}
+
+/* --- Collection Grid --- */
+.collection-grid__item {
+  overflow: hidden;
+}
+
+.collection-grid__item img {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.collection-grid__item:hover img {
+  transform: scale(1.03);
+}
+
+.collection-grid__item-title {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* --- Product Cards --- */
+.product-card__title {
+  letter-spacing: 0.04em;
+}
+
+.product-card__price {
+  color: #b8923f;
+}
+
+/* --- Fading Images / Slideshow --- */
+.fading-images__title {
+  letter-spacing: 0.05em;
+}
+
+/* --- Collection Callout --- */
+.collection-callout__subtitle {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #b8923f;
+}
+
+/* --- Footer --- */
+.site-footer {
+  border-top: 1px solid rgba(184, 146, 63, 0.15);
+}
+
+.footer-promotions__title {
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 13px;
+  color: #b8923f;
+}
+
+.footer-promotions__text p {
+  color: #8a8070;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.footer__title {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #b8923f;
+}
+
+/* Newsletter in footer */
+.footer__newsletter .input-group__field {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(184, 146, 63, 0.25);
+  color: #e8e0d4;
+  border-radius: 0;
+}
+
+.footer__newsletter .input-group__field::placeholder {
+  color: #8a8070;
+}
+
+/* --- Background Image Text Section --- */
+.background-image-text__subtitle {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #b8923f;
+}
+
+/* --- Dividers & Borders --- */
+hr,
+.hr--small,
+.hr--medium {
+  border-color: rgba(184, 146, 63, 0.12);
+}
+
+/* --- Drawer / Cart --- */
+.drawer {
+  border-left: 1px solid rgba(184, 146, 63, 0.15);
+}
+
+/* --- Links --- */
+a {
+  transition: color 0.3s ease;
+}
+
+/* --- Scrollbar Styling (Webkit) --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f0f0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(184, 146, 63, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(184, 146, 63, 0.5);
+}
+
+/* --- Section Titles --- */
+.section-header__title {
+  letter-spacing: 0.06em;
+}
+
+/* --- Featured Collection Switcher --- */
+.featured-collection-switcher__tab {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+/* --- Product Page Refinements --- */
+.product__title {
+  letter-spacing: 0.03em;
+}
+
+.product__price {
+  color: #b8923f;
+  letter-spacing: 0.04em;
+}
+
+/* --- Page width constraint for readability --- */
+.page-width--narrow {
+  max-width: 720px;
+}
+
+/* --- Subtle gold accent line on top of page --- */
+body::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #b8923f 30%, #d4a94e 50%, #b8923f 70%, transparent);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
