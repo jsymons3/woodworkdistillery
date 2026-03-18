@@ -1,0 +1,544 @@
+{%- style -%}
+  .tasting-infographic {
+    background: #0a0a0a;
+    color: #e8e0d4;
+    padding: 60px 0 80px;
+  }
+  .tasting-infographic__inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+
+  /* Header */
+  .tasting-infographic__header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .tasting-infographic__kicker {
+    font-family: var(--element-text-font-family--body, 'Futura', sans-serif);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    color: #b8923f;
+    margin-bottom: 16px;
+  }
+  .tasting-infographic__title {
+    font-family: var(--element-text-font-family--heading, 'Cormorant', serif);
+    font-weight: 400;
+    font-size: 52px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0 0 12px;
+    color: #f5f0e8;
+  }
+  .tasting-infographic__subtitle {
+    font-family: var(--element-text-font-family--heading, 'Cormorant', serif);
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: 0em;
+    color: #c4b89a;
+    font-style: italic;
+  }
+  .tasting-infographic__divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #b8923f, transparent);
+    margin: 28px auto 0;
+  }
+
+  /* Stats Row */
+  .tasting-infographic__stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+  }
+  .tasting-stat {
+    text-align: center;
+    min-width: 120px;
+  }
+  .tasting-stat__value {
+    font-family: var(--element-text-font-family--heading, 'Cormorant', serif);
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: #b8923f;
+    line-height: 1.1;
+  }
+  .tasting-stat__label {
+    font-family: var(--element-text-font-family--body, 'Futura', sans-serif);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 10px;
+    color: #8a8070;
+    margin-top: 6px;
+  }
+
+  /* Flavor Wheel */
+  .tasting-infographic__wheel {
+    margin-bottom: 60px;
+  }
+  .tasting-infographic__section-label {
+    font-family: var(--element-text-font-family--body, 'Futura', sans-serif);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 11px;
+    color: #b8923f;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .flavor-bars {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .flavor-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 16px;
+  }
+  .flavor-bar__name {
+    width: 120px;
+    text-align: right;
+    font-family: var(--element-text-font-family--body, 'Futura', sans-serif);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 10px;
+    color: #c4b89a;
+    flex-shrink: 0;
+  }
+  .flavor-bar__track {
+    flex: 1;
+    height: 4px;
+    background: rgba(184, 146, 63, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .flavor-bar__fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #b8923f, #d4a94e);
+    transition: width 1s ease;
+  }
+  .flavor-bar__score {
+    width: 30px;
+    font-family: var(--element-text-font-family--heading, 'Cormorant', serif);
+    font-size: 16px;
+    color: #b8923f;
+    flex-shrink: 0;
+  }
+
+  /* Tasting Stages */
+  .tasting-stages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+  .tasting-stage {
+    text-align: center;
+    padding: 32px 20px;
+    border: 1px solid rgba(184, 146, 63, 0.12);
+    position: relative;
+  }
+  .tasting-stage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 1px;
+    background: #b8923f;
+  }
+  .tasting-stage__icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+    display: block;
+    opacity: 0.7;
+  }
+  .tasting-stage__name {
+    font-family: var(--element-text-font-family--heading, 'Cormorant', serif);
+    font-size: 22px;
+    letter-spacing: -0.01em;
+    color: #f5f0e8;
+    margin-bottom: 12px;
+  }
+  .tasting-stage__notes {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #c4b89a;
+  }
+
+  /* Pairing Suggestions */
+  .tasting-pairings {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .pairing-grid {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .pairing-item {
+    width: 140px;
+    text-align: center;
+  }
+  .pairing-item__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1px solid rgba(184, 146, 63, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 24px;
+  }
+  .pairing-item__name {
+    font-family: var(--element-text-font-family--heading, 'Cormorant', serif);
+    font-size: 16px;
+    color: #f5f0e8;
+    letter-spacing: -0.01em;
+  }
+  .pairing-item__detail {
+    font-size: 11px;
+    color: #8a8070;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+
+  /* Summary Quote */
+  .tasting-summary {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 0;
+    border-top: 1px solid rgba(184, 146, 63, 0.12);
+    border-bottom: 1px solid rgba(184, 146, 63, 0.12);
+  }
+  .tasting-summary__quote {
+    font-family: var(--element-text-font-family--heading, 'Cormorant', serif);
+    font-size: 24px;
+    font-style: italic;
+    letter-spacing: -0.01em;
+    line-height: 1.6;
+    color: #e8e0d4;
+  }
+  .tasting-summary__attribution {
+    font-family: var(--element-text-font-family--body, 'Futura', sans-serif);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 10px;
+    color: #b8923f;
+    margin-top: 16px;
+  }
+
+  /* CTA */
+  .tasting-infographic__cta {
+    text-align: center;
+    margin-top: 50px;
+  }
+  .tasting-infographic__cta .btn {
+    background: #b8923f;
+    color: #0f0f0f;
+    padding: 16px 40px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 12px;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease;
+  }
+  .tasting-infographic__cta .btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  /* Responsive */
+  @media only screen and (max-width: 749px) {
+    .tasting-infographic__title { font-size: 36px; }
+    .tasting-infographic__stats { gap: 24px; }
+    .tasting-stat { min-width: 90px; }
+    .tasting-stat__value { font-size: 28px; }
+    .tasting-stages { grid-template-columns: 1fr; gap: 24px; }
+    .flavor-bar__name { width: 90px; font-size: 9px; }
+    .pairing-grid { gap: 20px; }
+    .pairing-item { width: 110px; }
+  }
+{%- endstyle -%}
+
+<div class="tasting-infographic">
+  <div class="tasting-infographic__inner">
+
+    <!-- Header -->
+    <div class="tasting-infographic__header">
+      <div class="tasting-infographic__kicker">{{ section.settings.kicker }}</div>
+      <h1 class="tasting-infographic__title">{{ section.settings.title | escape }}</h1>
+      <div class="tasting-infographic__subtitle">{{ section.settings.subtitle | escape }}</div>
+      <div class="tasting-infographic__divider"></div>
+    </div>
+
+    <!-- Key Stats -->
+    <div class="tasting-infographic__stats">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'stat' -%}
+          <div class="tasting-stat" {{ block.shopify_attributes }}>
+            <div class="tasting-stat__value">{{ block.settings.value }}</div>
+            <div class="tasting-stat__label">{{ block.settings.label }}</div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <!-- Flavor Profile Bars -->
+    <div class="tasting-infographic__wheel">
+      <div class="tasting-infographic__section-label">Flavor Profile</div>
+      <div class="flavor-bars">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'flavor' -%}
+            <div class="flavor-bar" {{ block.shopify_attributes }}>
+              <div class="flavor-bar__name">{{ block.settings.name }}</div>
+              <div class="flavor-bar__track">
+                <div class="flavor-bar__fill" style="width: {{ block.settings.intensity }}%"></div>
+              </div>
+              <div class="flavor-bar__score">{{ block.settings.intensity }}%</div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <!-- Tasting Stages: Nose / Palate / Finish -->
+    <div class="tasting-stages">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'stage' -%}
+          <div class="tasting-stage" {{ block.shopify_attributes }}>
+            <span class="tasting-stage__icon">{{ block.settings.icon }}</span>
+            <div class="tasting-stage__name">{{ block.settings.name }}</div>
+            <div class="tasting-stage__notes">{{ block.settings.notes }}</div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <!-- Pairing Suggestions -->
+    {%- assign has_pairings = false -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'pairing' -%}
+        {%- assign has_pairings = true -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- if has_pairings -%}
+    <div class="tasting-pairings">
+      <div class="tasting-infographic__section-label">Perfect Pairings</div>
+      <div class="pairing-grid">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'pairing' -%}
+            <div class="pairing-item" {{ block.shopify_attributes }}>
+              <div class="pairing-item__icon">{{ block.settings.icon }}</div>
+              <div class="pairing-item__name">{{ block.settings.name }}</div>
+              <div class="pairing-item__detail">{{ block.settings.detail }}</div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+    {%- endif -%}
+
+    <!-- Summary -->
+    {%- if section.settings.summary_quote != blank -%}
+    <div class="tasting-summary">
+      <div class="tasting-summary__quote">"{{ section.settings.summary_quote | escape }}"</div>
+      {%- if section.settings.summary_attribution != blank -%}
+        <div class="tasting-summary__attribution">— {{ section.settings.summary_attribution | escape }}</div>
+      {%- endif -%}
+    </div>
+    {%- endif -%}
+
+    <!-- CTA -->
+    {%- if section.settings.cta_text != blank and section.settings.cta_link != blank -%}
+    <div class="tasting-infographic__cta">
+      <a href="{{ section.settings.cta_link }}" class="btn">{{ section.settings.cta_text }}</a>
+    </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Tasting Notes Infographic",
+  "tag": "section",
+  "class": "index-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker text",
+      "default": "Tasting Notes"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Product name",
+      "default": "17-Year Seepin' Beauty"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Single Barrel Kentucky Straight Bourbon"
+    },
+    {
+      "type": "textarea",
+      "id": "summary_quote",
+      "label": "Summary quote",
+      "default": "A bourbon of extraordinary patience—17 years of quiet transformation yielding a whiskey that is at once powerful and profoundly refined."
+    },
+    {
+      "type": "text",
+      "id": "summary_attribution",
+      "label": "Quote attribution",
+      "default": "The WoodWork Collective"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button text",
+      "default": "Shop This Bottle"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Key Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "17"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Years Aged"
+        }
+      ]
+    },
+    {
+      "type": "flavor",
+      "name": "Flavor Bar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Flavor name",
+          "default": "Caramel"
+        },
+        {
+          "type": "range",
+          "id": "intensity",
+          "label": "Intensity",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "default": 75
+        }
+      ]
+    },
+    {
+      "type": "stage",
+      "name": "Tasting Stage",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji or text)",
+          "default": "👃"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Stage name",
+          "default": "Nose"
+        },
+        {
+          "type": "textarea",
+          "id": "notes",
+          "label": "Tasting notes"
+        }
+      ]
+    },
+    {
+      "type": "pairing",
+      "name": "Pairing Suggestion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji or text)",
+          "default": "🍫"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Pairing name",
+          "default": "Dark Chocolate"
+        },
+        {
+          "type": "text",
+          "id": "detail",
+          "label": "Detail",
+          "default": "70%+ cacao"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tasting Notes Infographic",
+      "blocks": [
+        { "type": "stat", "settings": { "value": "17", "label": "Years Aged" } },
+        { "type": "stat", "settings": { "value": "107.6", "label": "Proof" } },
+        { "type": "stat", "settings": { "value": "#1", "label": "Single Barrel" } },
+        { "type": "stat", "settings": { "value": "Kentucky", "label": "Origin" } },
+        { "type": "flavor", "settings": { "name": "Caramel", "intensity": 90 } },
+        { "type": "flavor", "settings": { "name": "Dark Oak", "intensity": 85 } },
+        { "type": "flavor", "settings": { "name": "Vanilla", "intensity": 75 } },
+        { "type": "flavor", "settings": { "name": "Leather", "intensity": 70 } },
+        { "type": "flavor", "settings": { "name": "Dried Fruit", "intensity": 65 } },
+        { "type": "flavor", "settings": { "name": "Tobacco", "intensity": 55 } },
+        { "type": "flavor", "settings": { "name": "Baking Spice", "intensity": 80 } },
+        { "type": "flavor", "settings": { "name": "Cherry", "intensity": 50 } },
+        { "type": "stage", "settings": { "icon": "👃", "name": "Nose", "notes": "Rich dark caramel and toasted oak lead, followed by waves of dried cherry, old leather, and a delicate thread of pipe tobacco. Deeper still, there is brown butter, holiday baking spice, and a faint wisp of cedar." } },
+        { "type": "stage", "settings": { "icon": "👅", "name": "Palate", "notes": "Full-bodied and velvety. Immediate dark toffee gives way to charred oak, vanilla bean, and a lush black cherry sweetness. Mid-palate reveals cinnamon, clove, and hints of dark chocolate. Beautifully integrated proof with no harshness." } },
+        { "type": "stage", "settings": { "icon": "✨", "name": "Finish", "notes": "Extraordinarily long and warming. Lingering oak tannins intertwine with caramel and dried fruit. A gentle leather and tobacco fade carries on for minutes, leaving a final impression of toasted walnut and aged maple." } },
+        { "type": "pairing", "settings": { "icon": "🍫", "name": "Dark Chocolate", "detail": "72% single origin" } },
+        { "type": "pairing", "settings": { "icon": "🧀", "name": "Aged Gouda", "detail": "24+ months" } },
+        { "type": "pairing", "settings": { "icon": "🥩", "name": "Smoked Brisket", "detail": "Post oak smoked" } },
+        { "type": "pairing", "settings": { "icon": "🌰", "name": "Candied Pecans", "detail": "Brown sugar glaze" } }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["custom.popups"]
+  }
+}
+{% endschema %}

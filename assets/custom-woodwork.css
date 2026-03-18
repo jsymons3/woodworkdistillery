@@ -18,7 +18,7 @@ body {
 /* --- Typography Enhancements --- */
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
 }
 
 /* Refined paragraph spacing */
@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5, h6,
 /* --- Hero Section --- */
 .hero-video__text-content h1,
 .hero__title {
-  letter-spacing: 0.06em;
+  letter-spacing: 0.02em;
   font-weight: 400;
   text-shadow: 0 2px 40px rgba(0, 0, 0, 0.5);
 }
@@ -110,6 +110,7 @@ h1, h2, h3, h4, h5, h6,
   position: relative;
   padding-bottom: 24px;
   margin-bottom: 32px;
+  letter-spacing: 0.01em;
 }
 
 .rich-text__heading::after {
@@ -155,7 +156,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* --- Product Cards --- */
 .product-card__title {
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
 }
 
 .product-card__price {
@@ -164,7 +165,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* --- Fading Images / Slideshow --- */
 .fading-images__title {
-  letter-spacing: 0.05em;
+  letter-spacing: 0.01em;
 }
 
 /* --- Collection Callout --- */
@@ -257,7 +258,7 @@ a {
 
 /* --- Section Titles --- */
 .section-header__title {
-  letter-spacing: 0.06em;
+  letter-spacing: 0.01em;
 }
 
 /* --- Featured Collection Switcher --- */
@@ -269,7 +270,7 @@ a {
 
 /* --- Product Page Refinements --- */
 .product__title {
-  letter-spacing: 0.03em;
+  letter-spacing: 0.005em;
 }
 
 .product__price {
