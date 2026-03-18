@@ -1,0 +1,259 @@
+{% doc %}
+  @prompt
+    Create a custom header logo block that displays "The WoodWork Collective" in a large, prominent font and "Distilling Co." in a smaller font below it. The text should be centered and styled elegantly. "The WoodWork Collective" should be the main heading with "Distilling Co." as a smaller subtitle. Include settings to customize the font sizes, colors, and alignment of both text elements independently.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-custom-logo-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    padding: {{ block.settings.padding_top }}px {{ block.settings.padding_horizontal }}px {{ block.settings.padding_bottom }}px {{ block.settings.padding_horizontal }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-custom-logo__container-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    gap: {{ block.settings.spacing_between }}px;
+    {% if block.settings.alignment == 'left' %}
+      align-items: flex-start;
+    {% elsif block.settings.alignment == 'center' %}
+      align-items: center;
+    {% else %}
+      align-items: flex-end;
+    {% endif %}
+  }
+
+  .ai-custom-logo__main-heading-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.main_font_size }}px;
+    color: {{ block.settings.main_text_color }};
+    font-family: {{ block.settings.main_font.family }}, {{ block.settings.main_font.fallback_families }};
+    font-weight: {{ block.settings.main_font.weight }};
+    font-style: {{ block.settings.main_font.style }};
+    line-height: 1.2;
+    text-align: {{ block.settings.alignment }};
+    letter-spacing: {{ block.settings.main_letter_spacing }}px;
+  }
+
+  .ai-custom-logo__subtitle-{{ ai_gen_id }} {
+    margin: 0;
+    font-size: {{ block.settings.subtitle_font_size }}px;
+    color: {{ block.settings.subtitle_text_color }};
+    font-family: {{ block.settings.subtitle_font.family }}, {{ block.settings.subtitle_font.fallback_families }};
+    font-weight: {{ block.settings.subtitle_font.weight }};
+    font-style: {{ block.settings.subtitle_font.style }};
+    line-height: 1.4;
+    text-align: {{ block.settings.alignment }};
+    letter-spacing: {{ block.settings.subtitle_letter_spacing }}px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-custom-logo__main-heading-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.main_font_size }}px * 0.7);
+    }
+
+    .ai-custom-logo__subtitle-{{ ai_gen_id }} {
+      font-size: calc({{ block.settings.subtitle_font_size }}px * 0.8);
+    }
+  }
+{% endstyle %}
+
+<div class="ai-custom-logo-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-custom-logo__container-{{ ai_gen_id }}">
+    {% if block.settings.main_text != blank %}
+      <h1 class="ai-custom-logo__main-heading-{{ ai_gen_id }}">
+        {{ block.settings.main_text }}
+      </h1>
+    {% endif %}
+
+    {% if block.settings.subtitle_text != blank %}
+      <p class="ai-custom-logo__subtitle-{{ ai_gen_id }}">
+        {{ block.settings.subtitle_text }}
+      </p>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom header logo",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Main heading"
+    },
+    {
+      "type": "text",
+      "id": "main_text",
+      "label": "Main text",
+      "default": "The WoodWork Collective"
+    },
+    {
+      "type": "font_picker",
+      "id": "main_font",
+      "label": "Font",
+      "default": "bauer_bodoni_n7"
+    },
+    {
+      "type": "range",
+      "id": "main_font_size",
+      "label": "Font size",
+      "min": 20,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "main_letter_spacing",
+      "label": "Letter spacing",
+      "min": -5,
+      "max": 10,
+      "step": 0.5,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "main_text_color",
+      "label": "Text color",
+      "default": "#e8e0d4"
+    },
+    {
+      "type": "header",
+      "content": "Subtitle"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_text",
+      "label": "Subtitle text",
+      "default": "Distilling Co."
+    },
+    {
+      "type": "font_picker",
+      "id": "subtitle_font",
+      "label": "Font",
+      "default": "futura_n4"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "subtitle_letter_spacing",
+      "label": "Letter spacing",
+      "min": -2,
+      "max": 10,
+      "step": 0.5,
+      "unit": "px",
+      "default": 2
+    },
+    {
+      "type": "color",
+      "id": "subtitle_text_color",
+      "label": "Text color",
+      "default": "#c4b89a"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "spacing_between",
+      "label": "Spacing between texts",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Padding horizontal",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#0a0a0a"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom header logo"
+    }
+  ]
+}
+{% endschema %}
